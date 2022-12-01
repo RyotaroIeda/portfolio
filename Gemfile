@@ -30,6 +30,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem "refile-s3"
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
