@@ -1,7 +1,7 @@
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
 		<li class="nav-list-item">
-			<a><%= link_to "Home", "/" %></a>
+			<a><%= link_to "Home", root_path %></a>
 		</li>
 		<li class="nav-list-item">
 			<a href="#about">About</a>
@@ -13,10 +13,13 @@
 			<ul class="navbar-nav ml-auto">
 				<% if user_signed_in? %>
 					<li class="nav-item">
-						サウナ登録
+						ユーザー
 					</li>
 					<li class="nav-item">
-						ユーザー情報設定
+						ユーザー編集
+					</li>
+					<li class="nav-item">
+						<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 					</li>
 				<% else %>
 					<li class="nav-item">
@@ -24,6 +27,9 @@
 					</li>
 					<li class="nav-item">
 						<%= link_to "ログイン", new_user_session_path, class: 'post' %>
+					</li>
+					<li class="nav-item">
+						<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
 					</li>
 				<% end %>
 			</ul>

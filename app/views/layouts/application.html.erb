@@ -14,10 +14,10 @@
   <body>
     <%= render "layouts/header" %>
     <% if flash[:notice] %>
-      <p class="notice"><%= notice %></p>
+      <p class="flash"><%= notice %></p>
     <% end %>
     <% if flash[:alert] %>
-      <p class="alert"><%= alert %></p>
+      <p class="flash"><%= alert %></p>
     <% end %>
     <%= yield %>
     <%= render "layouts/footer" %>
