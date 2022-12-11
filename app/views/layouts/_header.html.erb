@@ -12,15 +12,22 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav ml-auto">
 				<% if user_signed_in? %>
-					<li class="nav-item">
-						ユーザー
-					</li>
-					<li class="nav-item">
-						ユーザー編集
-					</li>
-					<li class="nav-item">
-						<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-					</li>
+					<div class="dropdown dropleft">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							メニュー
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li class="nav-item">
+								<%= link_to current_user.name, user_path(current_user) %>
+							</li>
+							<li class="nav-item">
+								<%= link_to "ユーザー情報設定", edit_user_path(current_user) %>
+							</li>
+							<li class="nav-item">
+								<%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+							</li>
+						</div>
+					</div>
 				<% else %>
 					<li class="nav-item">
 						<%= link_to "新規登録", new_user_registration_path, class: 'post' %>

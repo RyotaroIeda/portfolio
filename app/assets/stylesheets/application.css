@@ -41,7 +41,6 @@ header {
 body {
   min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
   position: relative; /* ←相対位置 */
-  padding-bottom: 60px; /* ←フッターの高さを指定 */
   box-sizing: border-box;
 }
 footer {
@@ -50,8 +49,6 @@ footer {
   text-align: center;
   background-color: #343a40;
   color: white;
-  position: absolute;
-  bottom: 0;
 }
 ul.footer-menu li {
   display: inline;

@@ -1,2 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="contaner">
+	<div class="sidebar">
+		<p><%= current_user.name %></p>
+			<ul>
+				<li><%= link_to "ユーザー情報", user_path(current_user) %></li>
+				<li><%= link_to "プロフィール", edit_user_path(current_user) %></li>
+			</ul>
+	</div>
+	<div class="mainbar">
+		<div class="card" style="width: 54rem;">
+  		<div class="card-header">
+    	ユーザー情報
+  		</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<label for="name">名前</label><div class="body-of-label"><%= @user.name %></div>
+				</li>
+				<li class="list-group-item">
+					<label for="email">メールアドレス</label><div class="body-of-label"><%= @user.email %></div>
+				</li>
+				<li class="list-group-item">
+					<%= link_to "メールアドレス・パスワードを変更する", edit_user_registration_path, class: "btn btn-sm btn-danger" %>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>		

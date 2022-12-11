@@ -1,2 +1,48 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="contaner">
+	<div class="sidebar">
+		<p><%= current_user.name %></p>
+			<ul>
+				<li><%= link_to "ユーザー情報", user_path(current_user) %></li>
+				<li><%= link_to "プロフィール", edit_user_path(current_user) %></li>
+			</ul>
+	</div>
+	<div class="mainbar">
+		<% @user.errors.full_messages.each do |message| %>
+			<div class="errors_message">
+				<%= message %>
+			</div>
+    <% end %>
+		<%= form_with model: @user do |f| %>
+		<div class="card" style="width: 54rem;">
+  		<div class="card-header">プロフィール</div>
+			<ul class="list-group list-group-flush">
+				<div class="form-group">
+					<li class="list-group-item">
+						<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "icon" %>
+					</li>
+				</div>
+					<li class="list-group-item">
+						<label for="profile_image">アイコン画像</label><div class="body-of-label"><%= f.file_field :profile_image, placeholder: "画像を選択" %></div>
+					</li>
+				<div class="form-group">
+					<li class="list-group-item">
+						<label for="name">名前</label><div class="body-of-label"><%= f.text_field :name, placeholder: current_user.name, class: "form-control" %></div>
+					</li>
+				</div>
+				<div class="form-group">
+					<li class="list-group-item">
+						<label for="homesauna">ホームサウナ</label><div class="body-of-label"><%= f.text_field :homesauna, placeholder: current_user.homesauna, class: "form-control" %></div>
+					</li>
+				<div class="form-group">
+					<li class="list-group-item">
+						<label for="introduce">自己紹介文</label><div class="body-of-label"><%= f.text_area :introduce, placeholder: "自己紹介を入力", class: "form-control" %></div>
+					</li>
+				<div class="form-group">
+				<li class="list-group-item">
+					<input type="submit" value="プロフィールを更新する" class="btn btn-sm btn-danger">
+				</li>
+			</ul>
+		</div>
+		<% end %>
+	</div>
+</div>		
