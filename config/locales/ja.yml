@@ -1,15 +1,15 @@
 ja:
-   activerecord:
-     models:
+  activerecord:
+    models:
       user: ユーザー
-     attributes:
+    attributes:
       user:
         name: 名前
         email: メールアドレス
         password: パスワード
-      post:
-        name: ルーム名
+      sauna:
+        name: サウナ名
         address: 住所
-        introduce: ルーム紹介
+        sauna_body: サウナ詳細
         price: 料金
-        image_name: ルーム画像 
+        image_id: サウナ画像

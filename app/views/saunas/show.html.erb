@@ -1,0 +1,169 @@
+<div class="sauna-show">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4 col-12 mt-5">
+        <div class="card shadow rounded">
+          <div class="card-header">
+            <h3 class="show-field-header">
+              <%= @sauna.name %>
+            </h3>
+          </div>
+          <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
+          <% if @sauna.user_id == current_user.id %>
+            <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-info" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xl-8 col-12 mt-5">
+        <div class="card shadow rounded">
+          <div class="card-header">
+            <h4>詳細情報</h4>
+          </div>
+          <div class="card-body show-card-body">
+            <p class="select-genre mt-4 mb-2">
+              <i class="far fa-circle fa-fw"></i>営業情報
+            </p>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>住所
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.address %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>電話番号
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.tel %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>開店時間
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.open_time.strftime("%H:%M") %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>閉店時間
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.close_time.strftime("%H:%M") %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>アクセス
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.access %>
+            </div>
+          </div>
+          <div class="card-body show-card-body">
+            <p class="select-genre mt-4 mb-2">
+              <i class="far fa-circle fa-fw"></i>施設情報
+            </p>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>サウナ温度
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.sauna_temperature %>℃
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>サウナ収容人数
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.sauna_capacity %>人
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>サウナ詳細
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.sauna_body %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>水風呂温度
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.water_temperature %>℃
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>水風呂収容人数
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.water_capacity %>人
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>水風呂詳細
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <%= @sauna.water_body %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>ロウリュ・アウフグースサービス
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <% if @sauna.louly_aufgoose == true %>
+                有
+              <% else %>
+                無
+              <% end %>
+            </div>
+          </div>
+          <% if (@sauna.louly_aufgoose == true) && (@sauna.louly_body) %>
+            <div class="row mb-1">
+              <div class="col-sm-4 col-6 text-left pl-4">
+                <i class="fas fa-map-marker-alt fa-fw"></i>ロウリュ・アウフグースサービス詳細
+              </div>
+              <div class="col-sm-8 col-6 text-left">
+                <%= @sauna.louly_body %>
+              </div>
+            </div>
+          <% end %>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>休憩スペース
+            </div>
+            <div class="col-sm-8 col-6 text-left">
+              <% if @sauna.rest_space == true %>
+                有
+              <% else %>
+                無
+              <% end %>
+            </div>
+          </div>
+          <% if (@sauna.rest_space == true) && (@sauna.rest_body) %>
+            <div class="row mb-1">
+              <div class="col-sm-4 col-6 text-left pl-4">
+                <i class="fas fa-map-marker-alt fa-fw"></i>休憩スペース詳細
+              </div>
+              <div class="col-sm-8 col-6 text-left">
+                <%= @sauna.rest_body %>
+              </div>
+            </div>
+          <% end %>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

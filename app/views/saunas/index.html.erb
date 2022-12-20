@@ -1,0 +1,20 @@
+<div class="sauna-index">
+	<div class="container">
+		<div class="contents-title text-center">
+			<h3 class="index-title">サウナ一覧</h3>
+		</div>
+		<div class="row">
+			<% @saunas.each do |sauna| %>
+				<div class="col-md-4">
+					<div class="card">
+						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%= sauna.name %></h5>
+							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div> 
+</div>

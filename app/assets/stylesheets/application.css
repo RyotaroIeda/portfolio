@@ -53,3 +53,8 @@ footer {
 ul.footer-menu li {
   display: inline;
 }
+.errors_message {
+  text-align: center;
+  background-color: deepskyblue;
+  color: white;
+}

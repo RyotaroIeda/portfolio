@@ -1,0 +1,24 @@
+// Place all the styles related to the saunas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+//new
+
+//index
+.sauna-index {
+  min-height: 100vh;
+}
+.contents-title text-center {
+  text-align: center;
+}
+.index-title {
+  padding-top: 20px;
+}
+//show
+.sauna-show {
+  min-height: 100vh;
+}
+.select-genre {
+  background-color: deepskyblue;
+  color: white;
+  text-align: center;
+}

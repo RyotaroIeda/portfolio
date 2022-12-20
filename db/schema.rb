@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_08_110458) do
+ActiveRecord::Schema.define(version: 2022_12_15_133215) do
+
+  create_table "saunas", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.string "image_id"
+    t.integer "water_temperature"
+    t.time "open_time"
+    t.time "close_time"
+    t.integer "sauna_temperature"
+    t.integer "sauna_capacity"
+    t.integer "water_capacity"
+    t.text "sauna_body"
+    t.text "water_body"
+    t.boolean "louly_aufgoose", default: false, null: false
+    t.text "louly_body"
+    t.boolean "rest_space", default: false, null: false
+    t.text "rest_body"
+    t.string "address"
+    t.text "access"
+    t.string "tel"
+    t.string "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
