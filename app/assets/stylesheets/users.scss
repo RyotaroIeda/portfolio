@@ -3,21 +3,8 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // show
-.contaner {
-  display: flex;
-  width: 100%;
+.user-show {
   min-height: 100vh;
-}
-.sidebar {
-  width: 20%;
-  background-color: white;
-  padding: 30px 15px;
-  border-right: 2px solid #e2e2e2;
-}
-.mainbar {
-  width: 80%;
-  background-color: #f6f8f9;
-  text-align: center;
 }
 .card {
   margin: 30px auto;
@@ -25,6 +12,9 @@
   max-width: 880px;
 }
 //edit
+.user-edit {
+  min-height: 100vh;
+}
 .icon {
   width: 65px;
   height: 65px;

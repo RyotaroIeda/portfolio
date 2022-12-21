@@ -14,6 +14,13 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    @saunas = @user.saunas
+    favorites = @user.favorites.pluck(:sauna_id)
+    @favorites = Sauna.find(favorites)
+  end
+
   private
 
   def user_params

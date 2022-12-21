@@ -21,13 +21,16 @@
 								<%= link_to current_user.name, user_path(current_user) %>
 							</li>
 							<li class="nav-item">
-								<%= link_to "ユーザー情報設定", edit_user_path(current_user) %>
+								<%= link_to "プロフィール", edit_user_path(current_user) %>
 							</li>
 							<li class="nav-item">
 								<%= link_to "新規サウナ登録", new_sauna_path %>
 							</li>
 							<li class="nav-item">
 								<%= link_to "サウナ一覧", saunas_path %>
+							</li>
+							<li class="nav-item">
+								<%= link_to "お気に入りサウナ", "/users/#{current_user.id}/favorites" %>
 							</li>
 							<li class="nav-item">
 								<%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>

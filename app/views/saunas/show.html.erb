@@ -4,9 +4,10 @@
       <div class="col-xl-4 col-12 mt-5">
         <div class="card shadow rounded">
           <div class="card-header">
-            <h3 class="show-field-header">
+            <h4 class="show-field-header">
               <%= @sauna.name %>
-            </h3>
+              <%= render "favorites/favorite", sauna: @sauna %>
+            </h4>
           </div>
           <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
           <% if @sauna.user_id == current_user.id %>
@@ -34,7 +35,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>電話番号
+              <i class="fas fa-phone fa-fw"></i>電話番号
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.tel %>
@@ -42,7 +43,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>開店時間
+              <i class="fas fa-hourglass-start fa-fw"></i>開店時間
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.open_time.strftime("%H:%M") %>
@@ -50,7 +51,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>閉店時間
+              <i class="fas fa-hourglass-end fa-fw"></i>閉店時間
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.close_time.strftime("%H:%M") %>
@@ -58,7 +59,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>アクセス
+              <i class="fas fa-walking fa-fw"></i>アクセス
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.access %>
@@ -71,7 +72,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>サウナ温度
+              <i class="fas fa-temperature-high fa-fw"></i>サウナ温度
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.sauna_temperature %>℃
@@ -79,7 +80,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>サウナ収容人数
+              <i class="fas fa-user-alt fa-fw"></i>サウナ収容人数
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.sauna_capacity %>人
@@ -87,7 +88,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>サウナ詳細
+              <i class="fas fa-hot-tub fa-fw"></i>サウナ詳細
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.sauna_body %>
@@ -95,7 +96,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>水風呂温度
+              <i class="fas fa-temperature-low fa-fw"></i>水風呂温度
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.water_temperature %>℃
@@ -103,7 +104,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>水風呂収容人数
+              <i class="fas fa-user-alt fa-fw"></i>水風呂収容人数
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.water_capacity %>人
@@ -111,7 +112,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>水風呂詳細
+              <i class="fas fa-tint fa-fw"></i>水風呂詳細
             </div>
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.water_body %>
@@ -119,7 +120,7 @@
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>ロウリュ・アウフグースサービス
+              <i class="fas fa-wind fa-fw"></i>ロウリュ・アウフグースサービス
             </div>
             <div class="col-sm-8 col-6 text-left">
               <% if @sauna.louly_aufgoose == true %>
@@ -132,7 +133,7 @@
           <% if (@sauna.louly_aufgoose == true) && (@sauna.louly_body) %>
             <div class="row mb-1">
               <div class="col-sm-4 col-6 text-left pl-4">
-                <i class="fas fa-map-marker-alt fa-fw"></i>ロウリュ・アウフグースサービス詳細
+                <i class="fas fa-info-circle fa-fw"></i>ロウリュ・アウフグースサービス詳細
               </div>
               <div class="col-sm-8 col-6 text-left">
                 <%= @sauna.louly_body %>
@@ -141,7 +142,7 @@
           <% end %>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
-              <i class="fas fa-map-marker-alt fa-fw"></i>休憩スペース
+              <i class="fas fa-chair fa-fw"></i>休憩スペース
             </div>
             <div class="col-sm-8 col-6 text-left">
               <% if @sauna.rest_space == true %>
@@ -154,7 +155,7 @@
           <% if (@sauna.rest_space == true) && (@sauna.rest_body) %>
             <div class="row mb-1">
               <div class="col-sm-4 col-6 text-left pl-4">
-                <i class="fas fa-map-marker-alt fa-fw"></i>休憩スペース詳細
+                <i class="fas fa-info-circle fa-fw"></i>休憩スペース詳細
               </div>
               <div class="col-sm-8 col-6 text-left">
                 <%= @sauna.rest_body %>
