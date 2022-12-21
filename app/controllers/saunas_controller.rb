@@ -1,6 +1,6 @@
 class SaunasController < ApplicationController
   def index
-    @saunas = Sauna.all.page(params[:page]).per(2)
+    @saunas = Sauna.all.page(params[:page]).per(15)
   end
 
   def show
@@ -24,6 +24,10 @@ class SaunasController < ApplicationController
 
   def edit
     @sauna = Sauna.find_by(id: params[:id])
+    if @sauna.user != current_user
+      redirect_to sauna_path(@sauna)
+      flash[:alert] = "不正なアクセスです"
+    end
   end
 
   def update

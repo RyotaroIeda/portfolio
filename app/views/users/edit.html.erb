@@ -17,13 +17,13 @@
 							<label for="profile_image">アイコン画像</label><div class="body-of-label"><%= f.file_field :profile_image, placeholder: "画像を選択" %></div>
 						</li>
 						<li class="list-group-item">
-							<label for="name">名前</label><div class="body-of-label"><%= f.text_field :name, placeholder: current_user.name, class: "form-control" %></div>
+							<label for="name">名前</label><div class="body-of-label"><%= f.text_field :name, placeholder: @user.name, class: "form-control" %></div>
 						</li>
 						<li class="list-group-item">
-							<label for="homesauna">ホームサウナ</label><div class="body-of-label"><%= f.text_field :homesauna, placeholder: current_user.homesauna, class: "form-control" %></div>
+							<label for="homesauna">ホームサウナ</label><div class="body-of-label"><%= f.text_field :homesauna, placeholder: @user.homesauna, class: "form-control" %></div>
 						</li>
 						<li class="list-group-item">
-							<label for="introduce">自己紹介文</label><div class="body-of-label"><%= f.text_area :introduce, placeholder: "自己紹介を入力", class: "form-control" %></div>
+							<label for="introduce">自己紹介文</label><div class="body-of-label"><%= f.text_area :introduce, placeholder: @user.introduce, class: "form-control" %></div>
 						</li>
 						<li class="list-group-item">
 							<input type="submit" value="プロフィールを更新する" class="btn btn-sm btn-info">
