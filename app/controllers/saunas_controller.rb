@@ -1,6 +1,6 @@
 class SaunasController < ApplicationController
   def index
-    @saunas = Sauna.all
+    @saunas = Sauna.all.page(params[:page]).per(2)
   end
 
   def show

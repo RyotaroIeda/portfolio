@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @saunas = @user.saunas
     favorites = @user.favorites.pluck(:sauna_id)
     @favorites = Sauna.find(favorites)
+    @favorites = Kaminari.paginate_array(@favorites).page(params[:page]).per(15)
   end
 
   private
