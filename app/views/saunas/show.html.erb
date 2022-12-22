@@ -12,6 +12,7 @@
           <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
           <% if @sauna.user_id == current_user.id %>
             <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-info" %>
+            <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-sm btn-danger" %>
           <% end %>
         </div>
       </div>
@@ -32,6 +33,16 @@
             <div class="col-sm-8 col-6 text-left">
               <%= @sauna.address %>
             </div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-sm-4 col-6 text-left pl-4">
+              <i class="fas fa-map-marker-alt fa-fw"></i>ホームページ
+            </div>
+            <% if @sauna.http != nil %>
+              <div class="col-sm-8 col-6 text-left">
+                <%= link_to @sauna.http, @sauna.http %>
+              </div>
+            <% end %>
           </div>
           <div class="row mb-1">
             <div class="col-sm-4 col-6 text-left pl-4">
