@@ -12,8 +12,18 @@
           <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
           <% if @sauna.user_id == current_user.id %>
             <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-info" %>
-            <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-sm btn-danger" %>
+            <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "#{@sauna.name}を削除しますか？" }, class: "btn btn-sm btn-danger" %>
           <% end %>
+          <div class="side-card">
+            <div class="d-flex justify-content-center">
+              <%= link_to "https://twitter.com/share?url=#{request.url}/&text=#{@sauna.name}/&hashtags=SaunaCamp", class: 'twitter', target: '_blank' do %>
+                <i class="fab fa-twitter" style='color: #3399FF;'></i>ツイートする
+              <% end %>
+              <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェアする</a></div>
+              <div id="fb-root"></div>
+              <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v15.0" nonce="6sCdcjZp"></script>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-xl-8 col-12 mt-5">

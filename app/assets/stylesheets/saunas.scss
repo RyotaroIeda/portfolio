@@ -22,3 +22,24 @@
   color: white;
   text-align: center;
 }
+.side-card {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.twitter {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1;
+  color: black;
+  padding: 6px 12px;
+}
+.twitter:hover {
+  color: black;
+  background-color: #c9c9c9;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+.fb-share-button {
+  align-items: center;
+}
