@@ -22,10 +22,6 @@
   color: white;
   text-align: center;
 }
-.side-card {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 .twitter {
   border: 1px solid #eee;
   border-radius: 6px;
@@ -40,6 +36,11 @@
   text-decoration: none;
   transition-duration: 0.5s;
 }
-.fb-share-button {
+.justify-content-center {
   align-items: center;
+  margin: 0 auto;
+}
+.review-index {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }

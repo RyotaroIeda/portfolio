@@ -5,6 +5,8 @@ class SaunasController < ApplicationController
 
   def show
     @sauna = Sauna.find_by(id: params[:id])
+    @comment = Comment.new
+    @comments = @sauna.comments
   end
 
   def new
@@ -48,6 +50,7 @@ class SaunasController < ApplicationController
   end
 
   private
+
   def sauna_params
     params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time, :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose, :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http)
   end
