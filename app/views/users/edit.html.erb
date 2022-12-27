@@ -25,9 +25,11 @@
 						<li class="list-group-item">
 							<label for="introduce">自己紹介文</label><div class="body-of-label"><%= f.text_area :introduce, placeholder: @user.introduce, class: "form-control" %></div>
 						</li>
-						<li class="list-group-item">
-							<input type="submit" value="プロフィールを更新する" class="btn btn-sm btn-info">
-						</li>
+						<% if @user.id == current_user.id %>
+							<li class="list-group-item">
+								<input type="submit" value="プロフィールを更新する" class="btn btn-sm btn-info">
+							</li>
+						<% end %>
 					</ul>
 			</div>
 			<% end %>

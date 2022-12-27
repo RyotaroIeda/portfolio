@@ -7,6 +7,10 @@ class SaunasController < ApplicationController
     @sauna = Sauna.find_by(id: params[:id])
     @comment = Comment.new
     @comments = @sauna.comments
+    if (@sauna.privacy == "2") && (@sauna.user_id != current_user.id)
+      redirect_back fallback_location: saunas_path
+      flash[:alert] = "非公開に設定されているサウナのため閲覧できません"
+    end
   end
 
   def new
@@ -30,6 +34,10 @@ class SaunasController < ApplicationController
       redirect_to sauna_path(@sauna)
       flash[:alert] = "不正なアクセスです"
     end
+    if (@sauna.privacy == "2") && (@sauna.user_id != current_user.id)
+      redirect_back fallback_location: saunas_path
+      flash[:alert] = "非公開に設定されているサウナのため編集できません"
+    end
   end
 
   def update
@@ -52,6 +60,6 @@ class SaunasController < ApplicationController
   private
 
   def sauna_params
-    params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time, :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose, :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude)
+    params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time, :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose, :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude, :privacy)
   end
 end

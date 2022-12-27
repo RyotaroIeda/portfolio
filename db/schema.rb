@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_25_080747) do
+ActiveRecord::Schema.define(version: 2022_12_26_124501) do
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.string "content"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2022_12_25_080747) do
     t.string "http"
     t.float "latitude"
     t.float "longitude"
+    t.string "privacy"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|

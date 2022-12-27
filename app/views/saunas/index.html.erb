@@ -5,15 +5,27 @@
 		</div>
 		<div class="row">
 			<% @saunas.each do |sauna| %>
-				<div class="col-md-4">
-					<div class="card">
-						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
-						<div class="card-body text-center">
-							<h5 class="card-title"><%= sauna.name %></h5>
-							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+				<% if sauna.privacy == "1" %>
+					<div class="col-md-4">
+						<div class="card">
+							<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
+							<div class="card-body text-center">
+								<h5 class="card-title"><%= sauna.name %></h5>
+								<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+							</div>
 						</div>
 					</div>
-				</div>
+				<% elsif (sauna.privacy == "2") && (sauna.user_id == current_user.id) %>
+					<div class="col-md-4">
+						<div class="card">
+							<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
+							<div class="card-body text-center">
+								<h5 class="card-title"><%= sauna.name %>(非公開)</h5>
+								<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+							</div>
+						</div>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 		<%= paginate @saunas %>
