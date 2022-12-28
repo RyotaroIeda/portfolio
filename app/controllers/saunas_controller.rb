@@ -1,6 +1,16 @@
 class SaunasController < ApplicationController
+  before_action :set_q, only: [:index, :search]
+
   def index
-    @saunas = Sauna.all.page(params[:page]).per(15)
+    if params[:latest]
+      @saunas = Sauna.latest.page(params[:page]).per(15)
+    elsif params[:old]
+      @saunas = Sauna.old.page(params[:page]).per(15)
+    elsif params[:name]
+      @saunas = Sauna.name_order.page(params[:page]).per(15)
+    else
+      @saunas = Sauna.all.page(params[:page]).per(15)
+    end
   end
 
   def show
@@ -57,7 +67,15 @@ class SaunasController < ApplicationController
     flash[:notice] = "#{@sauna.name}を削除しました"
   end
 
+  def search
+    @saunas = Sauna.all.page(params[:page]).per(15)
+  end
+
   private
+
+  def set_q
+    @q = Sauna.ransack(params[:q])
+  end
 
   def sauna_params
     params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time, :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose, :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude, :privacy)

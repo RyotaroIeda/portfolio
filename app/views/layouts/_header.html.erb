@@ -1,11 +1,16 @@
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
+		<% if user_signed_in? %>
+			<%= link_to user_path(current_user) do %>
+				<%= attachment_image_tag current_user, :profile_image, fallback: "no-image.png", class: "icon" %>
+			<% end %>
+		<% end %>
 		<li class="nav-list-item">
-			<a><%= link_to "Home", root_path %></a>
+			<%= link_to "Home", root_path %>
 		</li>
-		<li class="nav-list-item">
-			<a href="#about">About</a>
-		</li>
+			<%= search_form_for @search, url: search_saunas_path do |f| %>
+				<%= f.text_field :name_or_address_or_sauna_body_or_water_body_or_louly_body_cont, class: 'form-control', placeholder: 'キーワードを入力' %>
+			<% end %>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

@@ -32,6 +32,9 @@
 								<%= comment.user.name unless comment.user.blank? %>
 							<% end %>
 						<% end %>
+						<p class="comment-day">
+							<%= comment.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+						</p>
 						<br />
 						<%= comment.content %>
 						<% if comment.user_id == current_user.id %>

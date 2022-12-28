@@ -2,21 +2,11 @@
 	<div class="container">
 		<div class="contents-title text-center">
 			<h3 class="index-title">
-				サウナ一覧
-				<div class="btn-group">
-				<button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					並び順
-				</button>
-				<div class="dropdown-menu">
-					<li class="dropdown-item"><%= link_to "新しい順", saunas_path(latest: "true") %></li>
-					<li class="dropdown-item"><%= link_to "古い順", saunas_path(old: "true") %></li>
-					<li class="dropdown-item"><%= link_to "名前順", saunas_path(name: "true") %></li>
-				</div>
-			</div>
+				検索結果:<%= @search_saunas.count %>
 			</h3>
 		</div>
 		<div class="row">
-			<% @saunas.each do |sauna| %>
+			<% @search_saunas.each do |sauna| %>
 				<% if sauna.privacy == "1" %>
 					<div class="col-md-4">
 						<div class="card">
