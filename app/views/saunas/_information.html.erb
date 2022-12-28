@@ -8,122 +8,156 @@
 				<i class="far fa-circle fa-fw"></i>営業情報
 			</p>
 		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-map-marker-alt fa-fw"></i>住所
+		<% if sauna.address.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-map-marker-alt fa-fw"></i>住所
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.address %>
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.address %>
-			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-map-marker-alt fa-fw"></i>ホームページ
-			</div>
-			<% if sauna.http != nil %>
+		<% end %>
+		<% if sauna.http.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-map-marker-alt fa-fw"></i>ホームページ
+				</div>
 				<div class="col-sm-8 col-6 text-left">
 					<%= link_to sauna.http, sauna.http, target: '_blank' %>
 				</div>
-			<% end %>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-phone fa-fw"></i>電話番号
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.tel %>
+		<% end %>
+		<% if sauna.tel.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-phone fa-fw"></i>電話番号
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.tel %>
+				</div>
 			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-hourglass-start fa-fw"></i>開店時間
+		<% end %>
+		<% if sauna.price.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-phone fa-fw"></i>料金
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.price %>
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.open_time.strftime("%H:%M") %>
+		<% end %>
+		<% if sauna.open_time.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-hourglass-start fa-fw"></i>開店時間
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.open_time.strftime("%H:%M") %>
+				</div>
 			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-hourglass-end fa-fw"></i>閉店時間
+		<% end %>
+		<% if sauna.close_time.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-hourglass-end fa-fw"></i>閉店時間
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.close_time.strftime("%H:%M") %>
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.close_time.strftime("%H:%M") %>
+		<% end %>
+		<% if sauna.access.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-walking fa-fw"></i>アクセス
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.access %>
+				</div>
 			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-walking fa-fw"></i>アクセス
-			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.access %>
-			</div>
-		</div>
+		<% end %>
 		<div class="card-body show-card-body">
 			<p class="select-genre mt-4 mb-2">
 				<i class="far fa-circle fa-fw"></i>施設情報
 			</p>
 		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-temperature-high fa-fw"></i>サウナ温度
+		<% if sauna.sauna_temperature.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-temperature-high fa-fw"></i>サウナ温度
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.sauna_temperature %>℃
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.sauna_temperature %>℃
+		<% end %>
+		<% if sauna.sauna_capacity.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-user-alt fa-fw"></i>サウナ収容人数
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.sauna_capacity %>人
+				</div>
 			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-user-alt fa-fw"></i>サウナ収容人数
+		<% end %>
+		<% if sauna.sauna_body.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-hot-tub fa-fw"></i>サウナ詳細
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.sauna_body %>
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.sauna_capacity %>人
+		<% end %>
+		<% if sauna.water_temperature.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-temperature-low fa-fw"></i>水風呂温度
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.water_temperature %>℃
+				</div>
 			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-hot-tub fa-fw"></i>サウナ詳細
+		<% end %>
+		<% if sauna.water_capacity.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-user-alt fa-fw"></i>水風呂収容人数
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.water_capacity %>人
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.sauna_body %>
+		<% end %>
+		<% if sauna.water_body.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-tint fa-fw"></i>水風呂詳細
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<%= sauna.water_body %>
+				</div>
 			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-temperature-low fa-fw"></i>水風呂温度
+		<% end %>
+		<% if sauna.louly_aufgoose.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-wind fa-fw"></i>ロウリュ・アウフグースサービス
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<% if sauna.louly_aufgoose == true %>
+						有
+					<% else %>
+						無
+					<% end %>
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.water_temperature %>℃
-			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-user-alt fa-fw"></i>水風呂収容人数
-			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.water_capacity %>人
-			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-tint fa-fw"></i>水風呂詳細
-			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<%= sauna.water_body %>
-			</div>
-		</div>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-wind fa-fw"></i>ロウリュ・アウフグースサービス
-			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<% if sauna.louly_aufgoose == true %>
-					有
-				<% else %>
-					無
-				<% end %>
-			</div>
-		</div>
-		<% if (sauna.louly_aufgoose == true) && (sauna.louly_body) %>
+		<% end %>
+		<% if (sauna.louly_aufgoose == true) && (sauna.louly_body.present?) %>
 			<div class="row mb-1">
 				<div class="col-sm-4 col-6 text-left pl-4">
 					<i class="fas fa-info-circle fa-fw"></i>ロウリュ・アウフグースサービス詳細
@@ -133,19 +167,21 @@
 				</div>
 			</div>
 		<% end %>
-		<div class="row mb-1">
-			<div class="col-sm-4 col-6 text-left pl-4">
-				<i class="fas fa-chair fa-fw"></i>休憩スペース
+		<% if sauna.rest_space.present? %>
+			<div class="row mb-1">
+				<div class="col-sm-4 col-6 text-left pl-4">
+					<i class="fas fa-chair fa-fw"></i>休憩スペース
+				</div>
+				<div class="col-sm-8 col-6 text-left">
+					<% if sauna.rest_space == true %>
+						有
+					<% else %>
+						無
+					<% end %>
+				</div>
 			</div>
-			<div class="col-sm-8 col-6 text-left">
-				<% if sauna.rest_space == true %>
-					有
-				<% else %>
-					無
-				<% end %>
-			</div>
-		</div>
-		<% if (sauna.rest_space == true) && (sauna.rest_body) %>
+		<% end %>
+		<% if (sauna.rest_space == true) && (sauna.rest_body.present?) %>
 			<div class="row mb-1">
 				<div class="col-sm-4 col-6 text-left pl-4">
 					<i class="fas fa-info-circle fa-fw"></i>休憩スペース詳細

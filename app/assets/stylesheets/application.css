@@ -36,6 +36,7 @@ header {
   list-style: none;
   display: inline-block;
   margin: 0 20px;
+  flex-grow: 1;
 }
 .nav-item {
   padding-left: 15px;
@@ -70,12 +71,10 @@ ul.footer-menu li {
   border: none;
   color: #696969;
 }
-
 .pagination > .active > a {
   background: #93c9ff;
   border-radius: 15px;
 }
-
 .pagination > li > a:hover {
   border-radius: 15px;
 }

@@ -6,7 +6,9 @@
 			<% end %>
 		<% end %>
 		<li class="nav-list-item">
-			<%= link_to "Home", root_path %>
+			<%= link_to root_path do %>
+				<h5 class="home" style="font-family: cursive; color: white; transition-duration: 0.5s;" onMouseOut="this.style.color='white';" onMouseOver="this.style.color='#888'">Sauna&Camp</h5>
+			<% end %>
 		</li>
 			<%= search_form_for @search, url: search_saunas_path do |f| %>
 				<%= f.text_field :name_or_address_or_sauna_body_or_water_body_or_louly_body_cont, class: 'form-control', placeholder: 'キーワードを入力' %>

@@ -2,8 +2,11 @@
 	<div class="container">
 		<div class="contents-title text-center">
 			<h3 class="index-title">
-				検索結果:<%= @search_saunas.count %>
+				検索結果:<%= @search_saunas.count %>件
 			</h3>
+			<% if @search_saunas.count == 0 %>
+				<p>キーワードに当てはまるサウナはありませんでした</p>
+			<% end %>
 		</div>
 		<div class="row">
 			<% @search_saunas.each do |sauna| %>
