@@ -16,7 +16,7 @@ class SaunasController < ApplicationController
   def show
     @sauna = Sauna.find_by(id: params[:id])
     @comment = Comment.new
-    @comments = @sauna.comments
+    @comments = @sauna.comments.includes(:user)
     if (@sauna.privacy == "2") && (@sauna.user_id != current_user.id)
       redirect_back fallback_location: saunas_path
       flash[:alert] = "非公開に設定されているサウナのため閲覧できません"

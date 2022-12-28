@@ -26,6 +26,10 @@ header {
 #sauna_search {
   display: flex;
   flex-grow: 1;
+  align-items: center;
+}
+#search-form {
+  max-height: 32px;
   max-width: 175px;
 }
 .nav-list {
@@ -36,7 +40,6 @@ header {
   list-style: none;
   display: inline-block;
   margin: 0 20px;
-  flex-grow: 1;
 }
 .nav-item {
   padding-left: 15px;
