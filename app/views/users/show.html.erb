@@ -11,7 +11,7 @@
 						<li class="list-group-item">
 							<label for="name">名前</label><div class="body-of-label"><%= @user.name %></div>
 						</li>
-						<% if @user.id == current_user.id %>
+						<% if (user_signed_in?) && (@user.id == current_user.id) %>
 							<li class="list-group-item">
 								<label for="email">メールアドレス</label><div class="body-of-label"><%= @user.email %></div>
 							</li>
@@ -22,7 +22,7 @@
 						<li class="list-group-item">
 							<label for="name">自己紹介</label><div class="body-of-label"><%= @user.introduce %></div>
 						</li>
-						<% if @user.id == current_user.id %>
+						<% if (user_signed_in?) && (@user.id == current_user.id) %>
 							<li class="list-group-item">
 								<%= link_to "メールアドレス・パスワードを変更する", edit_user_registration_path, class: "btn btn-sm btn-danger" %>
 								<%= link_to "プロフィールを変更する", edit_user_path(current_user), class: "btn btn-sm btn-info" %>

@@ -27,7 +27,7 @@
 							</div>
 						</div>
 					</div>
-				<% elsif (sauna.privacy == "2") && (sauna.user_id == current_user.id) %>
+				<% elsif (user_signed_in?) && (sauna.user_id == current_user.id) && (sauna.privacy == "2") %>
 					<div class="col-md-4">
 						<div class="card">
 							<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>

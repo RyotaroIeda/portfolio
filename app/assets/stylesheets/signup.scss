@@ -4,8 +4,16 @@
   text-decoration: none;
 }
 
+.user-sign-up {
+  min-height: 100vh;
+}
+
+.user-login {
+  min-height: 100vh;
+}
+
 .box1 {
-  width: 400px;
+  max-width: 600px;
   min-height: 600px;
   margin: 60px auto 0;
   border-radius: 4px;
@@ -14,7 +22,7 @@
 }
 
 .box2 {
-  width: 400px;
+  max-width: 600px;
   height: 450px;
   margin: 60px auto 0;
   border-radius: 4px;

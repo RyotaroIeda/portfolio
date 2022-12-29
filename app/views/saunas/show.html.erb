@@ -7,11 +7,13 @@
           <div class="card-header">
             <h4 class="show-field-header">
               <%= @sauna.name %>
+              <% if user_signed_in? %>
               <%= render "favorites/favorite", sauna: @sauna %>
+              <% end %>
             </h4>
           </div>
           <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
-          <% if @sauna.user_id == current_user.id %>
+          <% if (user_signed_in?) && (@sauna.user_id == current_user.id) %>
             <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-info" %>
             <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "#{@sauna.name}を削除しますか？" }, class: "btn btn-sm btn-danger" %>
           <% end %>

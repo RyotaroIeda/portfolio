@@ -1,5 +1,6 @@
 class SaunasController < ApplicationController
   before_action :set_q, only: [:index, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     if params[:latest]
