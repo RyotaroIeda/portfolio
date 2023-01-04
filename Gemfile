@@ -36,7 +36,6 @@ gem "refile-s3"
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'geocoder'
-gem 'dotenv-rails'
 gem 'ransack'
 
 group :development, :test do

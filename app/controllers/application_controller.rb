@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search
-    @search = Sauna.ransack(params[:q]) 
+    @search = Sauna.ransack(params[:q])
     @search_saunas = @search.result
   end
 end

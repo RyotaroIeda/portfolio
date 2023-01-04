@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       flash[:alert] = "不正なアクセスです"
     end
-    if current_user.name = "ゲストユーザー"
+    if current_user.name == "ゲストユーザー"
       redirect_to user_path(current_user)
       flash[:alert] = "ゲストユーザーは編集できません"
     end
