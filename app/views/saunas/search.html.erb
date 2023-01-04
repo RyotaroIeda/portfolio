@@ -1,38 +1,36 @@
-<div class="sauna-index">
-	<div class="container">
-		<div class="contents-title text-center">
-			<h3 class="index-title">
-				検索結果:<%= @search_saunas.count %>件
-			</h3>
-			<% if @search_saunas.count == 0 %>
-				<p>キーワードに当てはまるサウナはありませんでした</p>
-			<% end %>
-		</div>
-		<div class="row">
-			<% @search_saunas.each do |sauna| %>
-				<% if sauna.privacy == "1" %>
-					<div class="col-md-4">
-						<div class="card">
-							<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
-							<div class="card-body text-center">
-								<h5 class="card-title"><%= sauna.name %></h5>
-								<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
-							</div>
+<div class="container">
+	<div class="contents-title text-center">
+		<h3 class="index-title">
+			検索結果:<%= @search_saunas.count %>件
+		</h3>
+		<% if @search_saunas.count == 0 %>
+			<p>キーワードに当てはまるサウナはありませんでした</p>
+		<% end %>
+	</div>
+	<div class="row">
+		<% @search_saunas.each do |sauna| %>
+			<% if sauna.privacy == "1" %>
+				<div class="col-md-4">
+					<div class="card">
+						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%= sauna.name %></h5>
+							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
 						</div>
 					</div>
-				<% elsif (sauna.privacy == "2") && (sauna.user_id == current_user.id) %>
-					<div class="col-md-4">
-						<div class="card">
-							<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
-							<div class="card-body text-center">
-								<h5 class="card-title"><%= sauna.name %>(非公開)</h5>
-								<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
-							</div>
+				</div>
+			<% elsif (sauna.privacy == "2") && (sauna.user_id == current_user.id) %>
+				<div class="col-md-4">
+					<div class="card">
+						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%= sauna.name %>(非公開)</h5>
+							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
 						</div>
 					</div>
-				<% end %>
+				</div>
 			<% end %>
-		</div>
-		<%= paginate @saunas %>
-	</div> 
-</div>
+		<% end %>
+	</div>
+	<%= paginate @saunas %>
+</div> 

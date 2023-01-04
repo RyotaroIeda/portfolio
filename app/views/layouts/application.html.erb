@@ -20,7 +20,9 @@
     <% if flash[:alert] %>
       <p class="flash"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <div class="saunacamp">
+      <%= yield %>
+    </div>
     <%= render "layouts/footer" %>
   </body>
 </html>

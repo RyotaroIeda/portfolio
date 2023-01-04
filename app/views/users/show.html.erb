@@ -1,35 +1,36 @@
 <% provide(:title, @user.name) %>
-<div class="user-show">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card" style="width: 54rem;">
-				<div class="card-header">ユーザー情報</div>
-					<ul class="list-group list-group-flush">
+<div class="row">
+	<div class="col-md-12">
+		<div class="card" style="width: 54rem;">
+			<div class="card-header">ユーザー情報</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+						<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "icon" %>
+					</li>
+					<li class="list-group-item">
+						<label for="name">名前</label><div class="body-of-label"><%= @user.name %></div>
+					</li>
+					<% if (user_signed_in?) && (@user.id == current_user.id) %>
 						<li class="list-group-item">
-							<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "icon" %>
+							<label for="email">メールアドレス</label><div class="body-of-label"><%= @user.email %></div>
 						</li>
+					<% end %>
+					<li class="list-group-item">
+						<label for="name">ホームサウナ</label><div class="body-of-label"><%= @user.homesauna %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="name">自己紹介</label><div class="body-of-label"><%= @user.introduce %></div>
+					</li>
+					<% if (user_signed_in?) && (@user.id == current_user.id) %>
 						<li class="list-group-item">
-							<label for="name">名前</label><div class="body-of-label"><%= @user.name %></div>
+							<%= link_to "メールアドレス・パスワードを変更する", edit_user_registration_path, class: "btn btn-sm btn-success" %>
+							<%= link_to "プロフィールを変更する", edit_user_path(current_user), class: "btn btn-sm btn-info" %>
+							<% if @user.name != 'ゲストユーザー'%>
+								<%= link_to "アカウントを削除する", user_path(current_user), method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-sm btn-danger" %>
+							<% end %>
 						</li>
-						<% if (user_signed_in?) && (@user.id == current_user.id) %>
-							<li class="list-group-item">
-								<label for="email">メールアドレス</label><div class="body-of-label"><%= @user.email %></div>
-							</li>
-						<% end %>
-						<li class="list-group-item">
-							<label for="name">ホームサウナ</label><div class="body-of-label"><%= @user.homesauna %></div>
-						</li>
-						<li class="list-group-item">
-							<label for="name">自己紹介</label><div class="body-of-label"><%= @user.introduce %></div>
-						</li>
-						<% if (user_signed_in?) && (@user.id == current_user.id) %>
-							<li class="list-group-item">
-								<%= link_to "メールアドレス・パスワードを変更する", edit_user_registration_path, class: "btn btn-sm btn-danger" %>
-								<%= link_to "プロフィールを変更する", edit_user_path(current_user), class: "btn btn-sm btn-info" %>
-							</li>
-						<% end %>
-					</ul>
-			</div>
+					<% end %>
+				</ul>
 		</div>
 	</div>
 </div>

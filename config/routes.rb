@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root to: "home#top"
+  get "about" => "home#about"
+  get "terms" => "home#terms"
+  get "policy" => "home#policy"
   get "users/:id/favorites" => "users#favorites"
   resources :users
   resources :saunas do

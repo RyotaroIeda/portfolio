@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .first-view {
   background-image: image-url("top_page.jpg");
-  height: 1600px;
+  height: 1500px;
   background-size: cover;
 }
 .main-container {
@@ -12,6 +12,25 @@
 .form-area {
   padding-top: 200px;
 }
-#about {
-  padding-top: 400px;
+.home {
+  font-family: cursive;
+}
+.about-view {
+  background-image: image-url("sauna.jpg");
+  background-size: cover;
+  height: 900px;
+  background-color: rgba(169, 146, 146, 0.5);
+  background-blend-mode: lighten;
+}
+.terms {
+  padding: 30px;
+}
+.hierarchy {
+  padding: 15px;
+}
+.terms-last {
+  float: right;
+}
+.policy {
+  padding: 30px;
 }

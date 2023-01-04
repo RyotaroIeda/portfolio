@@ -25,6 +25,9 @@
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<li class="nav-item">
+								<%= link_to "About", about_path %>
+							</li>
+							<li class="nav-item">
 								<%= link_to current_user.name, user_path(current_user) %>
 							</li>
 							<li class="nav-item">
@@ -46,16 +49,19 @@
 					</div>
 				<% else %>
 					<li class="nav-item">
-						<%= link_to "サウナ一覧", saunas_path %>
+						<%= link_to "About", about_path, :class=> "top-page-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+						<%= link_to "サウナ一覧", saunas_path, :class=> "top-page-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to "ログイン", new_user_session_path, class: 'post' %>
+						<%= link_to "新規登録", new_user_registration_path, :class=> "top-page-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+						<%= link_to "ログイン", new_user_session_path, :class=> "top-page-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, :class=> "top-page-link" %>
 					</li>
 				<% end %>
 			</ul>

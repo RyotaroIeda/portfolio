@@ -1,32 +1,30 @@
 <% provide(:title, @sauna.name) %>
-<div class="sauna-show">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4 col-12 mt-5">
-        <div class="card shadow rounded">
-          <div class="card-header">
-            <h4 class="show-field-header">
-              <%= @sauna.name %>
-              <% if user_signed_in? %>
-              <%= render "favorites/favorite", sauna: @sauna %>
-              <% end %>
-            </h4>
-          </div>
-          <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
-          <% if (user_signed_in?) && (@sauna.user_id == current_user.id) %>
-            <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-info" %>
-            <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "#{@sauna.name}を削除しますか？" }, class: "btn btn-sm btn-danger" %>
-          <% end %>
-          <div class="card-body">
-            <div class="d-flex justify-content-center">
-              <%= render "saunas/sns" %>
-            </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-4 col-12 mt-5">
+      <div class="card shadow rounded">
+        <div class="card-header">
+          <h4 class="show-field-header">
+            <%= @sauna.name %>
+            <% if user_signed_in? %>
+            <%= render "favorites/favorite", sauna: @sauna %>
+            <% end %>
+          </h4>
+        </div>
+        <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
+        <% if (user_signed_in?) && (@sauna.user_id == current_user.id) %>
+          <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %>
+          <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "#{@sauna.name}を削除しますか？" }, class: "btn btn-sm btn-danger" %>
+        <% end %>
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <%= render "saunas/sns" %>
           </div>
         </div>
       </div>
-      <%= render "saunas/information", sauna: @sauna %>
-      <%= render "saunas/comments", sauna: @sauna, comment: @comment, comments: @comments %>
-      <%= render "saunas/map", sauna: @sauna %>
     </div>
+    <%= render "saunas/information", sauna: @sauna %>
+    <%= render "saunas/comments", sauna: @sauna, comment: @comment, comments: @comments %>
+    <%= render "saunas/map", sauna: @sauna %>
   </div>
 </div>

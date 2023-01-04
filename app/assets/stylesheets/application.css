@@ -20,6 +20,14 @@
 *:hover {
   text-decoration: none;
 }
+.saunacamp {
+  min-height: 100vh;
+}
+body {
+  background: -moz-linear-gradient(top, #88ffff, #fff);
+  background: -webkit-linear-gradient(top, #aaffff, #fff);
+  background: linear-gradient(to bottom, #ccffff, #fff);
+}
 header {
   width: 100%;
 }
@@ -89,4 +97,14 @@ a {
 }
 a:hover {
   transition-duration: 0.5s !important;
+}
+ul {
+  list-style: none;
+}
+.top-page-link {
+  color: white;
+  transition-duration: 0.5s;
+}
+.top-page-link:hover {
+  color: #888;
 }

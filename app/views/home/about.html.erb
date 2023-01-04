@@ -1,0 +1,18 @@
+<div class="main-container">
+	<div class="about-view">
+		<div class="form-area">
+			<h2>Sauna&Campとは</h2>
+			<h4>施設のサウナはもちろん、テントサウナ施設・テントサウナができるおすすめのスポットをサウナーで共有するアプリです。</h4>
+			<p>
+				昨今のサウナブームにより、若者を中心にサウナーが増えています。<br>
+				しかし首都圏のサウナでは混雑が目立ち平日は首都圏のサウナ施設へ、土日休日は郊外へ行き自然の中テントサウナで整いたい人もいるのではないでしょうか。<br>
+				そこで定番の人気サウナ、あまり知られていないけどオススメしたいサウナ、テントサウナをするのに最適な自然スポットなどみなさまのおすすめをぜひシェアしてみましょう。
+			</p>
+			<% unless user_signed_in? %>
+				<%= link_to "登録してみる", new_user_registration_path, class: "btn btn-success" %>
+				<%= link_to "ログイン", new_user_session_path, class: "btn btn-success" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
