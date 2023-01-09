@@ -1,6 +1,10 @@
 # Sauna&Camp
 
 サウナ・テントサウナ・自然でテントサウナができるおすすめスポットをシェアするアプリです。
+
+
+![スクリーンショット 2023-01-09 16 44 18](https://user-images.githubusercontent.com/109324447/211260669-5d685c02-0234-42f5-84b8-d08b54841762.png)
+
 ![スクリーンショット 2023-01-09 15 21 42](https://user-images.githubusercontent.com/109324447/211256052-39be43f4-cb20-46e6-b9b6-affcaefbe293.png)
 
 
@@ -48,8 +52,10 @@
 - Twitter・Facebookシェア機能
 
 
-## ER図
+## テスト
 
-画像貼る
+- request spec
+- model spec
+- helper spec
 
 
