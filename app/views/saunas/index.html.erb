@@ -22,6 +22,10 @@
 						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
 						<div class="card-body text-center">
 							<h5 class="card-title"><%= sauna.name %></h5>
+							<div class="author">
+								<%= attachment_image_tag sauna.user, :profile_image, fallback: "no-image.png", class: "icon" %>
+								投稿者:<%= link_to sauna.user.name, user_path(sauna.user_id) %>
+							</div>
 							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
 						</div>
 					</div>
@@ -32,6 +36,10 @@
 						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
 						<div class="card-body text-center">
 							<h5 class="card-title"><%= sauna.name %>(非公開)</h5>
+							<div class="author">
+								<%= attachment_image_tag sauna.user, :profile_image, fallback: "no-image.png", class: "icon" %>
+								投稿者:<%= link_to sauna.user.name, user_path(sauna.user_id) %>
+							</div>
 							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
 						</div>
 					</div>

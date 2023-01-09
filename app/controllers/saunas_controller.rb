@@ -4,13 +4,13 @@ class SaunasController < ApplicationController
 
   def index
     if params[:latest]
-      @saunas = Sauna.latest.page(params[:page]).per(15)
+      @saunas = Sauna.latest.page(params[:page]).per(15).includes(:user)
     elsif params[:old]
-      @saunas = Sauna.old.page(params[:page]).per(15)
+      @saunas = Sauna.old.page(params[:page]).per(15).includes(:user)
     elsif params[:name]
-      @saunas = Sauna.name_order.page(params[:page]).per(15)
+      @saunas = Sauna.name_order.page(params[:page]).per(15).includes(:user)
     else
-      @saunas = Sauna.all.page(params[:page]).per(15)
+      @saunas = Sauna.all.page(params[:page]).per(15).includes(:user)
     end
   end
 
@@ -18,7 +18,7 @@ class SaunasController < ApplicationController
     @sauna = Sauna.find_by(id: params[:id])
     @comment = Comment.new
     @comments = @sauna.comments.includes(:user)
-    if (@sauna.privacy == "2") && (@sauna.user_id != current_user.id)
+    if (@sauna.privacy == "2") && (@sauna.user_id != current_user)
       redirect_back fallback_location: saunas_path
       flash[:alert] = "非公開に設定されているサウナのため閲覧できません"
     end
@@ -79,6 +79,8 @@ class SaunasController < ApplicationController
   end
 
   def sauna_params
-    params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time, :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose, :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude, :privacy)
+    params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time,
+    :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose,
+    :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude, :privacy)
   end
 end

@@ -1,7 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe "Favorites", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end

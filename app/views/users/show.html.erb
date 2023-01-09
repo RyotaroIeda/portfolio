@@ -16,10 +16,10 @@
 						</li>
 					<% end %>
 					<li class="list-group-item">
-						<label for="name">ホームサウナ</label><div class="body-of-label"><%= @user.homesauna %></div>
+						<label for="homesauna">ホームサウナ</label><div class="body-of-label"><%= @user.homesauna %></div>
 					</li>
 					<li class="list-group-item">
-						<label for="name">自己紹介</label><div class="body-of-label"><%= @user.introduce %></div>
+						<label for="introduce">自己紹介</label><div class="body-of-label"><%= @user.introduce %></div>
 					</li>
 					<% if (user_signed_in?) && (@user.id == current_user.id) && (@user.name != 'ゲストユーザー') %>
 						<li class="list-group-item">
