@@ -1,24 +1,53 @@
-# README
+# Sauna&Camp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+サウナ・テントサウナ・自然でテントサウナができるおすすめスポットをシェアするアプリです。
 
-Things you may want to cover:
+## URL
 
-* Ruby version
+[デモ](https://chatapp-reactts.web.app/)
 
-* System dependencies
+ゲストログインボタンから、メールアドレスとパスワードを入力せずにログインできます。
 
-* Configuration
+## 使用技術
 
-* Database creation
+- Ruby 3.0.2
+- Ruby on Rails 6.1.7
+- MySQL 5.7
+- Heroku
+- AWS
+    - S3
+- Docker/Docker-compose
+- RSpec
+- rubocop
+- Google Maps API
 
-* Database initialization
 
-* How to run the test suite
+## 機能一覧
 
-* Services (job queues, cache servers, search engines, etc.)
+- アカウント作成、ログイン、ログアウト機能(devise)
+- ゲストログイン機能
+- プロフィール編集機能(ゲストログインの場合は除く)
+- 投稿作成機能
+    - 画像投稿(refile)
+    - サウナを非公開に設定すると他のユーザから見れなくなる
+    - 位置情報検索機能(geocoder)
+- 投稿削除機能
+- 投稿編集機能
+- 投稿並べ替え機能（新しい順、古い順、名前順）
+- マップ機能
+    - 投稿の位置情報を元にマップにマーカー表示
+- 口コミ機能
+- お気に入り機能
+    - ユーザーがお気に入りしたサウナは一覧表示可能
+- ランキング機能
+    - お気に入り数に応じてトップページに人気サウナランキングが表示
+- ページネーション機能(kaminari)
+- 検索機能(ransack)
+- Twitter・Facebookシェア機能
 
-* Deployment instructions
 
-* ...
+## ER図
+
+画像貼る
+
+
