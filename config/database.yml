@@ -52,4 +52,6 @@ production:
   <<: *default
   database: app_production
   username: app
+  adapter: postgresql
+  encoding: unicode
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
