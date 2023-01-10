@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xl-12 my-5">
+			<div class="card shadow rounded">
+				<div class="card-header text-center">
+					<h4>マップ</h4>
+				</div>
+				<div class="content">
+					<div id="map"></div>
+					<%= link_to "GoogleMapで開く", "https://maps.google.co.jp/maps?q=loc:#{sauna.latitude},#{sauna.longitude}&iwloc=J", target: "_blank", class: "btn btn-sm btn-primary float-right" %>
+				</div>
+				<script type="text/javascript">
+					function initMap() {
+						var test ={lat: <%= sauna.latitude %>, lng: <%= sauna.longitude %>};
+						var map = new google.maps.Map(document.getElementById('map'), {
+								zoom: 15,
+								center: test
+						});
+						var transitLayer = new google.maps.TransitLayer();
+						transitLayer.setMap(map);
+						var contentString = '住所：<%= sauna.address %>';
+						var infowindow = new google.maps.InfoWindow({
+								content: contentString
+						});
+						var marker = new google.maps.Marker({
+								position:test,
+								map: map,
+								title: contentString
+						});
+						marker.addListener('click', function() {
+								infowindow.open(map, marker);
+						});
+					}
+				</script>
+				<script async defer
+					src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB0o3pN3_ivrmhUe14CgAGcp9aAsl3g_6c&callback=initMap">
+				</script>
+				<style type="text/css">
+					#map { 
+						height: 400px;
+						margin-left:auto;
+						margin-right:auto;
+						text-align:left;
+						width: 100%;
+					}
+				</style>
+			</div>
+		</div>
+	</div>
+</div>

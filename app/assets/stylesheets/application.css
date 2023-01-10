@@ -13,3 +13,98 @@
  *= require_tree .
  *= require_self
  */
+* {
+  text-decoration: none;
+  margin: 0;
+}
+*:hover {
+  text-decoration: none;
+}
+.saunacamp {
+  min-height: 100vh;
+}
+body {
+  background: -moz-linear-gradient(top, #88ffff, #fff);
+  background: -webkit-linear-gradient(top, #aaffff, #fff);
+  background: linear-gradient(to bottom, #ccffff, #fff);
+}
+header {
+  width: 100%;
+}
+#sauna_search {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+#search-form {
+  max-height: 32px;
+  max-width: 175px;
+}
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+.nav-item {
+  padding-left: 15px;
+}
+.flash {
+  background-color: deepskyblue;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+body {
+  min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+  position: relative; /* ←相対位置 */
+  box-sizing: border-box;
+}
+footer {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  background-color: #343a40;
+  color: white;
+}
+ul.footer-menu li {
+  display: inline;
+}
+.errors_message {
+  text-align: center;
+  background-color: deepskyblue;
+  color: white;
+}
+.pagination > li > a {
+  border: none;
+  color: #696969;
+}
+.pagination > .active > a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+.pagination > li > a:hover {
+  border-radius: 15px;
+}
+.pagination {
+  justify-content: center;
+}
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  transition-duration: 0.5s !important;
+}
+ul {
+  list-style: none;
+}
+.top-page-link {
+  color: white;
+  transition-duration: 0.5s;
+}
+.top-page-link:hover {
+  color: #888;
+}
