@@ -32,9 +32,9 @@ gem 'devise'
 gem 'devise-i18n'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem 'aws-sdk'
+gem 'refile-s3', github: 'refile/refile-s3', ref: '768d60d4e5e'
+gem 'aws-sdk-s3'
 gem 'fog-aws'
-gem "refile-s3"
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'geocoder'

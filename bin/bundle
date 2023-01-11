@@ -9,6 +9,7 @@
 #
 
 require "rubygems"
+require 'aws-sdk-s3'
 
 m = Module.new do
   module_function
