@@ -8,7 +8,7 @@
 		<% end %>
 	</div>
 	<div class="row">
-		<% @search_saunas.each do |sauna| %>
+		<% @search_saunas.with_attached_avatar.each do |sauna| %>
 			<% if sauna.privacy == "1" %>
 				<div class="col-md-4">
 					<div class="card">

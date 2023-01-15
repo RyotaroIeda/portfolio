@@ -4,13 +4,13 @@ class SaunasController < ApplicationController
 
   def index
     if params[:latest]
-      @saunas = Sauna.latest.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
+      @saunas = Sauna.latest.page(params[:page]).per(15).includes(:user)
     elsif params[:old]
-      @saunas = Sauna.old.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
+      @saunas = Sauna.old.page(params[:page]).per(15).includes(:user)
     elsif params[:name]
-      @saunas = Sauna.name_order.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
+      @saunas = Sauna.name_order.page(params[:page]).per(15).includes(:user)
     else
-      @saunas = Sauna.all.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
+      @saunas = Sauna.all.page(params[:page]).per(15).includes(:user)
     end
   end
 
@@ -18,7 +18,7 @@ class SaunasController < ApplicationController
     @sauna = Sauna.find_by(id: params[:id])
     @comment = Comment.new
     @comments = @sauna.comments.includes(:user)
-    if (@sauna.privacy == "2") && (@sauna.user_id != current_user)
+    if (@sauna.privacy == "2") && (@sauna.user_id != current_user.id)
       redirect_back fallback_location: saunas_path
       flash[:alert] = "非公開に設定されているサウナのため閲覧できません"
     end
