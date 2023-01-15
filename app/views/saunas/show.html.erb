@@ -11,7 +11,11 @@
             <% end %>
           </h4>
         </div>
-        <%= attachment_image_tag @sauna, :image, fallback: "no-image.png", class: "show-image" %>
+        <% if @sauna.avatar.attached? %>
+          <%= image_tag @sauna.avatar, class: "show-image" %>
+        <% else %>
+          <%= image_tag "no-image.png", class: "show-image" %>
+        <% end %>
         <% if (user_signed_in?) && (@sauna.user_id == current_user.id) %>
           <%= link_to "#{@sauna.name}の情報を変更する", edit_sauna_path(@sauna), class: "btn btn-sm btn-success" %>
           <%= link_to "#{@sauna.name}を削除する", sauna_path(@sauna), method: :delete, data: { confirm: "#{@sauna.name}を削除しますか？" }, class: "btn btn-sm btn-danger" %>

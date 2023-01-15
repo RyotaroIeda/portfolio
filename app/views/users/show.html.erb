@@ -4,9 +4,15 @@
 		<div class="card" style="width: 54rem;">
 			<div class="card-header">ユーザー情報</div>
 				<ul class="list-group list-group-flush">
-					<li class="list-group-item">
-						<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "icon" %>
-					</li>
+					<% if @user.avatar.attached? %>
+						<li class="list-group-item">
+							<%= image_tag @user.avatar, class: "icon" %>
+						</li>
+					<% else %>
+						<li class="list-group-item">
+							<%= image_tag "no-image.png", class: "icon" %>
+						</li>
+					<% end %>
 					<li class="list-group-item">
 						<label for="name">名前</label><div class="body-of-label"><%= @user.name %></div>
 					</li>

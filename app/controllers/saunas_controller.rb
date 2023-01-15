@@ -4,13 +4,13 @@ class SaunasController < ApplicationController
 
   def index
     if params[:latest]
-      @saunas = Sauna.latest.page(params[:page]).per(15).includes(:user)
+      @saunas = Sauna.latest.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
     elsif params[:old]
-      @saunas = Sauna.old.page(params[:page]).per(15).includes(:user)
+      @saunas = Sauna.old.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
     elsif params[:name]
-      @saunas = Sauna.name_order.page(params[:page]).per(15).includes(:user)
+      @saunas = Sauna.name_order.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
     else
-      @saunas = Sauna.all.page(params[:page]).per(15).includes(:user)
+      @saunas = Sauna.all.page(params[:page]).per(15).includes(:user).includes([:avatar_attachment])
     end
   end
 
@@ -81,6 +81,6 @@ class SaunasController < ApplicationController
   def sauna_params
     params.require(:sauna).permit(:name, :image, :water_temperature, :open_time, :close_time,
     :sauna_temperature, :sauna_capacity, :water_capacity, :sauna_body, :water_body, :louly_aufgoose,
-    :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude, :privacy)
+    :louly_body, :rest_space, :rest_body, :address, :access, :tel, :price, :http, :latitude, :longitude, :privacy, :avatar)
   end
 end

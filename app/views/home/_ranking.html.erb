@@ -9,7 +9,11 @@
 			<% if sauna.privacy == "1" %>
 				<div class="col-md-4">
 					<div class="card">
-						<%= attachment_image_tag sauna, :image, fallback: "no-image.png", class: "card-img-top" %>
+						<% if sauna.avatar.attached? %>
+							<%= image_tag sauna.avatar, class: "card-img-top" %>
+						<% else %>
+							<%= image_tag "no-image.png", class: "card-img-top" %>
+						<% end %>
 						<div class="card-body text-center">
 							<h5>
 								<i class="fas fa-medal" style="color: 

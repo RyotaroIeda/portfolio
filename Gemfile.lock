@@ -421,6 +421,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
+  mini_magick (~> 4.8)
   mysql2 (~> 0.5)
   pg
   puma (~> 5.0)

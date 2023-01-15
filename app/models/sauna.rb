@@ -1,5 +1,5 @@
 class Sauna < ApplicationRecord
-  attachment :image
+  has_one_attached :avatar
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
