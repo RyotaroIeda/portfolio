@@ -28,7 +28,11 @@
 					<div class="review-index">
 						<% unless comment.user.blank? %>
 							<%= link_to user_path(comment.user_id) do %>
-								<%= attachment_image_tag comment.user, :profile_image, fallback: "no-image.png", class:"icon" %>
+								<% if comment.user.avatar.attached? %>
+									<%= image_tag comment.user.avatar, class: "icon" %>
+								<% else %>
+									<%= image_tag "no-image.png", class: "icon" %>
+								<% end %>
 								<%= comment.user.name unless comment.user.blank? %>
 							<% end %>
 						<% end %>
