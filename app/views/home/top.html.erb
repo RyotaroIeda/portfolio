@@ -7,6 +7,9 @@
 				<%= link_to "登録してみる", new_user_registration_path, class: "btn btn-success" %>
 				<%= link_to "ログイン", new_user_session_path, class: "btn btn-success" %>
 			<% end %>
+			<%= search_form_for @search, url: search_saunas_path do |f| %>
+				<%= f.text_field :address_cont, id: "search-address", class: 'form-control', placeholder: '地域を入力' %>
+			<% end %>
 		</div>
 	</div>
 	<div class="second-view">

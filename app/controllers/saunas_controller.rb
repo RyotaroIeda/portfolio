@@ -69,7 +69,7 @@ class SaunasController < ApplicationController
   end
 
   def search
-    @saunas = Sauna.all.page(params[:page]).per(15)
+    @saunas = Sauna.all
   end
 
   private
