@@ -1,3 +1,42 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.first-view {
+  background-image: image-url("top_page.jpg");
+  height: 1500px;
+  background-size: cover;
+}
+.main-container {
+  text-align: center;
+}
+.form-area {
+  padding-top: 200px;
+}
+.home {
+  font-family: cursive;
+}
+.about-view {
+  background-image: image-url("sauna.jpg");
+  background-size: cover;
+  height: 900px;
+  background-color: rgba(169, 146, 146, 0.5);
+  background-blend-mode: lighten;
+}
+.terms {
+  padding: 30px;
+}
+.hierarchy {
+  padding: 15px;
+}
+.terms-last {
+  float: right;
+}
+.policy {
+  padding: 30px;
+}
+#search-address {
+  padding-top: 10px;
+  margin: 10px auto;
+  max-height: 50px;
+  max-width: 300px;
+}

@@ -1,0 +1,6 @@
+<%= link_to "https://twitter.com/share?url=#{request.url}/&text=#{@sauna.name}/&hashtags=SaunaCamp", class: 'twitter', target: '_blank' do %>
+	<i class="fab fa-twitter" style='color: #3399FF;'></i>ツイートする
+<% end %>
+<div class="fb-share-button" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" class="fb-xfbml-parse-ignore">シェアする</a></div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v15.0" nonce="zNL9Srtm"></script>

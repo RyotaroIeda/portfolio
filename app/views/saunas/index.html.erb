@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="contents-title text-center">
+		<h3 class="index-title">
+			サウナ一覧
+			<div class="btn-group">
+			<button class="btn btn-secondary btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				並び順
+			</button>
+			<div class="dropdown-menu">
+				<li class="dropdown-item"><%= link_to "新しい順", saunas_path(latest: "true") %></li>
+				<li class="dropdown-item"><%= link_to "古い順", saunas_path(old: "true") %></li>
+				<li class="dropdown-item"><%= link_to "名前順", saunas_path(name: "true") %></li>
+			</div>
+		</div>
+		</h3>
+	</div>
+	<div class="row">
+		<% @saunas.with_attached_avatar.each do |sauna| %>
+			<% if sauna.privacy == "1" %>
+				<div class="col-md-4">
+					<div class="card">
+						<% if sauna.avatar.attached? %>
+							<%= image_tag sauna.avatar, class: "card-img-top" %>
+						<% else %>
+							<%= image_tag "no-image.png", class: "card-img-top" %>
+						<% end %>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%= sauna.name %></h5>
+							<div class="author">
+								<% if sauna.user.avatar.attached? %>
+									<%= image_tag sauna.user.avatar, class: "icon" %>
+								<% else %>
+									<%= image_tag "no-image.png", class: "icon" %>
+								<% end %>
+								投稿者:<%= link_to sauna.user.name, user_path(sauna.user_id) %>
+							</div>
+							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+						</div>
+					</div>
+				</div>
+			<% elsif (user_signed_in?) && (sauna.user_id == current_user.id) && (sauna.privacy == "2") %>
+				<div class="col-md-4">
+					<div class="card">
+						<% if sauna.avatar.attached? %>
+							<%= image_tag sauna.avatar, class: "card-img-top" %>
+						<% else %>
+							<%= image_tag "no-image.png", class: "card-img-top" %>
+						<% end %>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%= sauna.name %>(非公開)</h5>
+							<div class="author">
+								<% if sauna.user.avatar.attached? %>
+									<%= image_tag sauna.user.avatar, class: "icon" %>
+								<% else %>
+									<%= image_tag "no-image.png", class: "icon" %>
+								<% end %>
+								投稿者:<%= link_to sauna.user.name, user_path(sauna.user_id) %>
+							</div>
+							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	<%= paginate @saunas %>
+</div> 

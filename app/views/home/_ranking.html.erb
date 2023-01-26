@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="contents-title text-center">
+		<h3 class="index-title">
+			人気サウナランキング
+		</h3>
+	</div>
+	<div class="row">
+		<% sauna_favorite_ranks.each.with_index(1) do |sauna, i| %>
+			<% if sauna.privacy == "1" %>
+				<div class="col-md-4">
+					<div class="card">
+						<% if sauna.avatar.attached? %>
+							<%= image_tag sauna.avatar, class: "card-img-top" %>
+						<% else %>
+							<%= image_tag "no-image.png", class: "card-img-top" %>
+						<% end %>
+						<div class="card-body text-center">
+							<h5>
+								<i class="fas fa-medal" style="color: 
+									<% if i == 1 %>
+										gold
+									<% elsif i == 2 %>
+										silver
+									<% elsif i == 3 %>
+										brown
+									<% end %>
+									;">
+								</i>第<%= i %>位
+							</h5>
+							<h5 class="card-title"><%= sauna.name %></h5>
+							<%= link_to "詳細を見る", sauna_path(sauna.id), class: "btn btn-info" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div> 

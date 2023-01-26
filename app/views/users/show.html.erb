@@ -1,0 +1,40 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+	<div class="col-md-12">
+		<div class="card" style="width: 54rem;">
+			<div class="card-header">ユーザー情報</div>
+				<ul class="list-group list-group-flush">
+					<% if @user.avatar.attached? %>
+						<li class="list-group-item">
+							<%= image_tag @user.avatar, class: "icon" %>
+						</li>
+					<% else %>
+						<li class="list-group-item">
+							<%= image_tag "no-image.png", class: "icon" %>
+						</li>
+					<% end %>
+					<li class="list-group-item">
+						<label for="name">名前</label><div class="body-of-label"><%= @user.name %></div>
+					</li>
+					<% if (user_signed_in?) && (@user.id == current_user.id) %>
+						<li class="list-group-item">
+							<label for="email">メールアドレス</label><div class="body-of-label"><%= @user.email %></div>
+						</li>
+					<% end %>
+					<li class="list-group-item">
+						<label for="homesauna">ホームサウナ</label><div class="body-of-label"><%= @user.homesauna %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="introduce">自己紹介</label><div class="body-of-label"><%= @user.introduce %></div>
+					</li>
+					<% if (user_signed_in?) && (@user.id == current_user.id) && (@user.name != 'ゲストユーザー') %>
+						<li class="list-group-item">
+							<%= link_to "メールアドレス・パスワードを変更する", edit_user_registration_path, class: "btn btn-sm btn-success" %>
+							<%= link_to "プロフィールを変更する", edit_user_path(current_user), class: "btn btn-sm btn-info" %>
+							<%= link_to "アカウントを削除する", user_path(current_user), method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-sm btn-danger" %>
+						</li>
+					<% end %>
+				</ul>
+		</div>
+	</div>
+</div>

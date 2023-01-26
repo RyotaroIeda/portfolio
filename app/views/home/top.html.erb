@@ -1,2 +1,18 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="main-container">
+	<div class="first-view">
+		<div class="form-area">
+			<h1 class="home">SAUNA&CAMP</h1>
+			<h5>お気に入りのサウナや自然スポットをシェアしてみませんか？</h5>
+			<% unless user_signed_in? %>
+				<%= link_to "登録してみる", new_user_registration_path, class: "btn btn-success" %>
+				<%= link_to "ログイン", new_user_session_path, class: "btn btn-success" %>
+			<% end %>
+			<%= search_form_for @search, url: search_saunas_path do |f| %>
+				<%= f.text_field :address_cont, id: "search-address", class: 'form-control', placeholder: '地域を入力' %>
+			<% end %>
+		</div>
+	</div>
+	<div class="second-view">
+		<%= render "home/ranking", sauna_favorite_ranks: @sauna_favorite_ranks %>
+	</div>
+</div>

@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-12">
+		<% @sauna.errors.full_messages.each do |message| %>
+			<div class="errors_message">
+				<%= message %>
+			</div>
+    <% end %>
+		<%= form_with model: @sauna do |f| %>
+			<div class="card" style="width: 54rem;">
+				<div class="card-header">新規サウナ登録画面</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+						<label for="privacy">公開・非公開(必須)</label><div class="body-of-label"><%= f.select :privacy, [["公開", 1], ["非公開", 2]], include_blank: "選択して下さい" %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="name">サウナ名(必須)</label><div class="body-of-label"><%= f.text_field :name, class: "form-control" %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="image">サウナ画像</label><div class="body-of-label"><%= f.file_field :avatar, placeholder: "画像を選択" %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="address">住所</label><%= f.text_field :address, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="http">ホームページ</label><%= f.text_field :http, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="price">料金</label><%= f.text_field :price, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="access">アクセス</label><div class="body-of-label"><%= f.text_area :access, class: "form-control" %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="tel">電話番号</label><%= f.telephone_field :tel, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="open_time">開店時間</label><%= f.time_select :open_time, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="close_time">閉店時間</label><%= f.time_select :close_time, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="sauna_temperature">サウナの温度(℃)</label><%= f.number_field :sauna_temperature, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="water_temperature">水風呂の温度(℃)</label><%= f.number_field :water_temperature, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="sauna_capacity">サウナの収容人数(人)</label><%= f.number_field :sauna_capacity, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="water_capacity">水風呂の収容人数(人)</label><%= f.number_field :water_capacity, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="sauna_body">サウナ詳細</label><div class="body-of-label"><%= f.text_area :sauna_body, class: "form-control" %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="water_body">水風呂詳細</label><div class="body-of-label"><%= f.text_area :water_body, class: "form-control" %></div>
+					</li>
+					<li class="list-group-item">
+						<label for="louly_aufgoose">ロウリュ・アウフグースサービスの有無</label><%= f.check_box :louly_aufgoose, {}, checked: true, unchecked: false %>
+					</li>
+					<li class="list-group-item">
+						<label for="louly_body">ロウリュ・アウフグースサービス詳細</label><%= f.text_area :louly_body, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<label for="rest_space">休憩スペースの有無</label><%= f.check_box :rest_space, {}, checked: true, unchecked: false %>
+					</li>
+					<li class="list-group-item">
+						<label for="rest_body">休憩スペース詳細</label><%= f.text_area :rest_body, class: "form-control" %>
+					</li>
+					<li class="list-group-item">
+						<input type="submit" value="サウナを登録する" class="btn btn-sm btn-info">
+					</li>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+</div>

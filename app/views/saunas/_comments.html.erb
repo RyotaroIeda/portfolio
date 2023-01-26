@@ -1,0 +1,53 @@
+<% if user_signed_in? %>
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12 my-5">
+				<div class="card shadow rounded">
+					<div class="card-header text-center">
+						<h4>口コミ</h4>
+					</div>
+					<%= form_with(model: [sauna, comment], local: true) do |f| %>
+						<%= f.text_area :content, class: "form-control", rows: 5, placeholder: "口コミを入力する" %>
+						<%= button_tag type: "submit", class: "btn btn-success float-right" do %>
+							<i class="far fa-comments"></i> コメントする
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-xl-12 my-5">
+			<div class="card shadow rounded">
+				<div class="card-header text-center">
+					<h4>口コミ一覧</h4>
+				</div>
+				<% comments.each do |comment| %>
+					<div class="review-index">
+						<% unless comment.user.blank? %>
+							<%= link_to user_path(comment.user_id) do %>
+								<% if comment.user.avatar.attached? %>
+									<%= image_tag comment.user.avatar, class: "icon" %>
+								<% else %>
+									<%= image_tag "no-image.png", class: "icon" %>
+								<% end %>
+								<%= comment.user.name unless comment.user.blank? %>
+							<% end %>
+						<% end %>
+						<p class="comment-day">
+							<%= comment.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+						</p>
+						<br />
+						<%= comment.content %>
+						<% if (user_signed_in?) && (comment.user_id == current_user.id) %>
+							<%= link_to "口コミを削除する", sauna_comment_path(sauna, comment), data: {confirm: "口コミを削除しますか？"}, method: :delete, class: "btn btn-sm btn-danger float-right" %>
+						<% end %>
+						<br />
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
